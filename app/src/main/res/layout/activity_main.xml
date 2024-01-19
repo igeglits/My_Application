@@ -9,73 +9,84 @@
         android:id="@+id/hintTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="99dp"
         android:text="Угадай число от 0 до 9"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        tools:ignore="HardcodedText" />
 
     <GridLayout
         android:id="@+id/gridLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/hintTextView"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="400dp"
         android:columnCount="3">
 
         <!-- Кнопки от 1 до 9 -->
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1"
-            android:onClick="onNumberButtonClick" />
+            android:onClick="onNumberButtonClick"
+            android:text="@string/_1"
+            tools:ignore="UsingOnClickInXml" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2"
-            android:onClick="onNumberButtonClick" />
+            android:onClick="onNumberButtonClick"
+            android:text="@string/_2"
+            tools:ignore="UsingOnClickInXml" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="3"
-            android:onClick="onNumberButtonClick" />
+            android:onClick="onNumberButtonClick"
+            android:text="@string/_3"
+            tools:ignore="UsingOnClickInXml" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4"
-            android:onClick="onNumberButtonClick" />
+            android:onClick="onNumberButtonClick"
+            android:text="@string/_4"
+            tools:ignore="UsingOnClickInXml" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5"
-            android:onClick="onNumberButtonClick" />
+            android:onClick="onNumberButtonClick"
+            android:text="@string/_5"
+            tools:ignore="UsingOnClickInXml" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="6"
-            android:onClick="onNumberButtonClick" />
+            android:onClick="onNumberButtonClick"
+            android:text="@string/_6"
+            tools:ignore="UsingOnClickInXml" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="7"
-            android:onClick="onNumberButtonClick" />
+            android:onClick="onNumberButtonClick"
+            android:text="@string/_7"
+            tools:ignore="UsingOnClickInXml" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="8"
-            android:onClick="onNumberButtonClick" />
+            android:onClick="onNumberButtonClick"
+            android:text="@string/_8"
+            tools:ignore="UsingOnClickInXml" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="9"
-            android:onClick="onNumberButtonClick" />
+            android:onClick="onNumberButtonClick"
+            android:text="@string/_9"
+            tools:ignore="UsingOnClickInXml" />
 
         <!-- Добавь аналогичные кнопки для чисел от 2 до 9 -->
 
@@ -83,23 +94,26 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
             android:layout_gravity="center"
-            android:onClick="onNumberButtonClick" />
+            android:onClick="onNumberButtonClick"
+            android:text="@string/_0"
+            tools:ignore="UsingOnClickInXml" />
 
         <!-- Кнопка "Enter" -->
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enter"
-            android:onClick="onEnterButtonClick" />
+            android:onClick="onEnterButtonClick"
+            android:text="@string/enter"
+            tools:ignore="UsingOnClickInXml" />
 
         <!-- Кнопка "Exit" -->
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Exit"
-            android:onClick="onExitButtonClick" />
+            android:onClick="onExitButtonClick"
+            android:text="@string/exit"
+            tools:ignore="UsingOnClickInXml" />
 
     </GridLayout>
 
