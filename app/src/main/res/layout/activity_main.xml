@@ -9,19 +9,16 @@
         android:id="@+id/hintTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="99dp"
-        android:text="Угадай число от 0 до 9"
-        android:textSize="18sp"
-        tools:ignore="HardcodedText" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="@string/_0_9"
+        android:textSize="18sp" />
 
     <GridLayout
         android:id="@+id/gridLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/hintTextView"
-        android:layout_marginTop="400dp"
+        android:layout_centerVertical="true"
         android:columnCount="3">
 
         <!-- Кнопки от 1 до 9 -->
@@ -99,21 +96,6 @@
             android:text="@string/_0"
             tools:ignore="UsingOnClickInXml" />
 
-        <!-- Кнопка "Enter" -->
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onEnterButtonClick"
-            android:text="@string/enter"
-            tools:ignore="UsingOnClickInXml" />
-
-        <!-- Кнопка "Exit" -->
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onExitButtonClick"
-            android:text="@string/exit"
-            tools:ignore="UsingOnClickInXml" />
 
     </GridLayout>
 
