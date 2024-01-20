@@ -1,16 +1,14 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.GridLayout;
-        import android.widget.TextView;
-
-        import androidx.appcompat.app.AppCompatActivity;
-
-        import java.util.Random;
+import android.view.View;
+import android.widget.Button;
+import android.widget.GridLayout;
+import android.widget.TextView;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,14 +25,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onNumberButtonClick(View view) {
-        Button button = (Button) view;
-        int enteredNumber = Integer.parseInt(button.getText().toString());
-        checkGuess(enteredNumber);
+        Button clickedButton = (Button) view;
+        String buttonText = clickedButton.getText().toString();
+
+        // Проверка, была ли нажата кнопка "info"
+        if (buttonText.equals(getString(R.string.info_button))) {
+            // Открывать браузер с определенным адресом (в данном случае, google.com)
+            openBrowser("http://www.google.com");
+        } else {
+            // Если это не кнопка "info", обрабатываем как угадывание числа
+            int enteredNumber = Integer.parseInt(buttonText);
+            checkGuess(enteredNumber);
+        }
+    }
+
+    private void openBrowser(String url) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        startActivity(browserIntent);
     }
 
     private void generateTargetNumber() {
         Random random = new Random();
-        targetNumber = random.nextInt(10);
+        // Генерируем случайное число от 1 до 9 включительно
+        targetNumber = random.nextInt(9) + 1;
     }
 
     private void checkGuess(int enteredNumber) {
