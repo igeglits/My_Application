@@ -32,14 +32,6 @@ public class MainActivity extends AppCompatActivity {
         checkGuess(enteredNumber);
     }
 
-    public void onEnterButtonClick(View view) {
-        // Добавь здесь логику для обработки нажатия на кнопку "Enter"
-    }
-
-    public void onExitButtonClick(View view) {
-        // Добавь здесь логику для обработки нажатия на кнопку "Exit"
-    }
-
     private void generateTargetNumber() {
         Random random = new Random();
         targetNumber = random.nextInt(10);

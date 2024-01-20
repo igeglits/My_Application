@@ -26,7 +26,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_weight="1"
             android:onClick="onNumberButtonClick"
             android:text="@string/_1"
             tools:ignore="UsingOnClickInXml" />
@@ -37,7 +36,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_weight="1"
             android:onClick="onNumberButtonClick"
             android:text="@string/_2"
             tools:ignore="UsingOnClickInXml" />
@@ -47,18 +45,18 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_weight="1"
+            android:clickable="true"
             android:onClick="onNumberButtonClick"
             android:text="@string/_3"
-            tools:ignore="UsingOnClickInXml" />
+            tools:ignore="UsingOnClickInXml"
+            android:focusable="true" />
 
         <Button
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"
-            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
             android:onClick="onNumberButtonClick"
             android:text="@string/_4"
             tools:ignore="UsingOnClickInXml" />
@@ -67,9 +65,8 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"
-            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
             android:onClick="onNumberButtonClick"
             android:text="@string/_5"
             tools:ignore="UsingOnClickInXml" />
@@ -78,9 +75,8 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"
-            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
             android:onClick="onNumberButtonClick"
             android:text="@string/_6"
             tools:ignore="UsingOnClickInXml" />
@@ -89,9 +85,8 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"
-            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
             android:onClick="onNumberButtonClick"
             android:text="@string/_7"
             tools:ignore="UsingOnClickInXml" />
@@ -100,9 +95,8 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"
-            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
             android:onClick="onNumberButtonClick"
             android:text="@string/_8"
             tools:ignore="UsingOnClickInXml" />
@@ -111,9 +105,8 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"
-            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
             android:onClick="onNumberButtonClick"
             android:text="@string/_9"
             tools:ignore="UsingOnClickInXml" />
@@ -123,13 +116,13 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="8dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_weight="1"
             android:onClick="onNumberButtonClick"
-            android:text="@string/_0"
+            android:text="@string/info_button"
             tools:ignore="UsingOnClickInXml" />
+
 
     </GridLayout>
 
