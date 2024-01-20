@@ -11,4 +11,5 @@
     <string name="_9">9</string>
     <string name="info_button">Info</string>
     <string name="_0_9">Угадай число от 0 до 9</string>
+    <string name="game_start"><![CDATA[<<<>>>]]></string>
 </resources>

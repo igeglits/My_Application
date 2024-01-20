@@ -52,11 +52,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void checkGuess(int enteredNumber) {
         if (enteredNumber < targetNumber) {
-            hintTextView.setText(enteredNumber + " < ?");
+            hintTextView.setText(enteredNumber + ">>>>>");
         } else if (enteredNumber > targetNumber) {
-            hintTextView.setText("? > " + enteredNumber);
+            hintTextView.setText("<<<<<" + enteredNumber);
         } else {
-            hintTextView.setText("Поздравляем! Вы угадали число!");
+            hintTextView.setText("<<<"+targetNumber+">>>");
             generateTargetNumber(); // Начать новую игру
         }
     }
