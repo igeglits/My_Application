@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         hintTextView.animate()
                 .alpha(0f)
-                .setDuration(500)
+                .setDuration(1000)
                 .withEndAction(() -> {
                     hintTextView.setText(newText);
                     hintTextView.animate().alpha(1f).setDuration(1000).start();

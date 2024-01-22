@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="color1">#877B3D</color> <!-- Золотистый -->
+    <color name="color2">#BA9654</color> <!-- Оранжевый -->
+    <color name="color3">#C96F5E</color> <!-- Томатный -->
 </resources>
