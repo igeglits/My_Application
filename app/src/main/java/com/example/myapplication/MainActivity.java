@@ -51,13 +51,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void checkGuess(int enteredNumber) {
+        String newText;
         if (enteredNumber < targetNumber) {
-            hintTextView.setText(enteredNumber + ">>>>>");
+            newText = enteredNumber + ">>>>>";
         } else if (enteredNumber > targetNumber) {
-            hintTextView.setText("<<<<<" + enteredNumber);
+            newText = "<<<<<" + enteredNumber;
         } else {
-            hintTextView.setText("<<<"+targetNumber+">>>");
+            newText = "<<<" + targetNumber + ">>>";
             generateTargetNumber(); // Начать новую игру
         }
+
+        hintTextView.animate()
+                .alpha(0f)
+                .setDuration(500)
+                .withEndAction(() -> {
+                    hintTextView.setText(newText);
+                    hintTextView.animate().alpha(1f).setDuration(1000).start();
+                })
+                .start();
     }
 }
