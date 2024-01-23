@@ -15,6 +15,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     private MediaPlayer[] mediaPlayers;
+    private int currentTrack = 0; // Текущий трек
     private int targetNumber;
     private TextView hintTextView;
     private Button muteButton; // Добавлено поле для кнопки mute
@@ -38,13 +39,11 @@ public class MainActivity extends AppCompatActivity {
         // Создание MediaPlayer для каждого аудиофайла
         for (int i = 0; i < audioResourceIds.length; i++) {
             mediaPlayers[i] = MediaPlayer.create(this, audioResourceIds[i]);
-            mediaPlayers[i].setLooping(true); // для зацикливания звука
+            mediaPlayers[i].setOnCompletionListener(mp -> playNextTrack()); // Слушатель для переключения треков
         }
 
         // Воспроизведение первого аудиофайла
-        if (mediaPlayers.length > 0) {
-            mediaPlayers[0].start();
-        }
+        playCurrentTrack();
     }
 
     public void onNumberButtonClick(View view) {
@@ -103,35 +102,53 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void mute() {
-        stopMediaPlayers(); // Останавливаем все медиапроигрыватели
-        isMuted = true; // Устанавливаем состояние mute
-      //  muteButton.setBackgroundResource(R.drawable.ic_volume_off); // Устанавливаем иконку выключенного звука
-        Toast.makeText(this, "Sound Off", Toast.LENGTH_SHORT).show();
+        if (!isMuted) {
+            for (MediaPlayer mediaPlayer : mediaPlayers) {
+                if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+                    mediaPlayer.pause(); // Пауза воспроизведения
+                }
+            }
+            isMuted = true; // Устанавливаем состояние mute
+            muteButton.setText("Unmute"); // Изменяем текст кнопки
+            Toast.makeText(this, "Sound Off", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void unmute() {
-        for (MediaPlayer mediaPlayer : mediaPlayers) {
-            if (mediaPlayer != null) {
-                mediaPlayer.start(); // Запускаем звук, если он был выключен
-            }
+        if (isMuted) {
+            playCurrentTrack(); // Возобновление воспроизведения
+            isMuted = false; // Устанавливаем состояние unmute
+            muteButton.setText("Mute"); // Изменяем текст кнопки
+            Toast.makeText(this, "Sound On", Toast.LENGTH_SHORT).show();
         }
-        isMuted = false; // Устанавливаем состояние unmute
-       // muteButton.setBackgroundResource(R.drawable.ic_volume_up); // Устанавливаем иконку включенного звука
-        Toast.makeText(this, "Sound On", Toast.LENGTH_SHORT).show();
     }
 
-    private void stopMediaPlayers() {
-        for (MediaPlayer mediaPlayer : mediaPlayers) {
-            if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-                mediaPlayer.stop();
-                mediaPlayer.reset();
-            }
+    private void playCurrentTrack() {
+        if (mediaPlayers.length > 0 && currentTrack < mediaPlayers.length) {
+            mediaPlayers[currentTrack].start(); // Воспроизведение текущего трека
+        }
+    }
+
+    private void playNextTrack() {
+        if (mediaPlayers.length > 0) {
+            currentTrack = (currentTrack + 1) % mediaPlayers.length; // Переключение на следующий трек
+            playCurrentTrack();
         }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        stopMediaPlayers();
+        if (isMuted) {
+            stopMediaPlayer();
+        }
+    }
+
+    private void stopMediaPlayer() {
+        for (MediaPlayer mediaPlayer : mediaPlayers) {
+            if (mediaPlayer != null) {
+                mediaPlayer.release(); // Освобождаем ресурсы
+            }
+        }
     }
 }
