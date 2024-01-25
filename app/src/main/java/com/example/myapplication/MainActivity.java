@@ -9,8 +9,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.media.MediaPlayer;
 import android.widget.Toast;
-
 import java.util.Random;
+
+import com.android.billingclient.api.BillingClient;
+import com.android.billingclient.api.BillingClientStateListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         // Проверка, была ли нажата кнопка "info"
         if (buttonText.equals(getString(R.string.info_button))) {
             // Открывать браузер с определенным адресом (в данном случае, google.com)
-            openBrowser("http://www.google.com");
+            openBrowser("https://mathmeditation.wordpress.com/");
         } else {
             // Если это не кнопка "info", обрабатываем как угадывание числа
             int enteredNumber = Integer.parseInt(buttonText);
