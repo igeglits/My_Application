@@ -20,7 +20,7 @@
             android:exported="false">
             <!-- дополнительные настройки, если нужны -->
             <intent-filter>
-                <action android:name="android.intent.action.SOME_ACTION" />
+                <action android:name="com.your.package.ACTION_RECEIVE_BILLING" />
                 <!-- добавьте любые другие фильтры, если нужно -->
             </intent-filter>
         </receiver>
