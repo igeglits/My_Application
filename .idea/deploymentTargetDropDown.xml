@@ -10,12 +10,12 @@
               <deviceKey>
                 <Key>
                   <type value="SERIAL_NUMBER" />
-                  <value value="adb-RFCW21CWC9T-RY5YHG._adb-tls-connect._tcp" />
+                  <value value="emulator-5554" />
                 </Key>
               </deviceKey>
             </Target>
           </runningDeviceTargetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-01-29T12:06:25.069695866Z" />
+          <timeTargetWasSelectedWithDropDown value="2024-01-29T12:25:12.173754235Z" />
         </State>
       </entry>
       <entry key="app">
