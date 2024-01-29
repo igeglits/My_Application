@@ -4,7 +4,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -84,10 +87,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupBillingClient() {
+
         billingClient = BillingClient.newBuilder(this)
                 .enablePendingPurchases()
                 .setListener((billingResult, purchases) -> handlePurchasesUpdate(billingResult, purchases))
                 .build();
+        IntentFilter filter = new IntentFilter("com.your.package.ACTION_RECEIVE_BILLING");
+        filter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
+        MyBillingReceiver billingReceiver = new MyBillingReceiver();
+        registerReceiver(billingReceiver, filter, "your.permission", null);
 
         billingClient.startConnection(new BillingClientStateListener() {
             @Override
@@ -100,6 +108,21 @@ public class MainActivity extends AppCompatActivity {
                 // Можете попробовать переподключиться
             }
         });
+    }
+    public class MyBillingReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if ("com.your.package.ACTION_RECEIVE_BILLING".equals(action)) {
+                // Обработка полученного намерения
+                // Например, вы можете извлечь дополнительные данные из намерения и выполнить необходимые действия
+                // Например:
+                String extraData = intent.getStringExtra("extra_data_key");
+                if (extraData != null) {
+                    // Выполнить необходимые действия на основе полученных данных
+                }
+            }
+        }
     }
 
     private void handlePurchasesUpdate(BillingResult billingResult, List<Purchase> purchases) {
