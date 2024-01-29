@@ -153,6 +153,9 @@ public class MainActivity extends AppCompatActivity {
                     BillingResult billingResultFlow = billingClient.launchBillingFlow(this, billingFlowParams);
                     if (billingResultFlow.getResponseCode() != BillingClient.BillingResponseCode.OK) {
                         handleBillingError(billingResultFlow.getResponseCode());
+                    } else {
+                        // Вызываем метод для отправки широковещательного намерения после успешного запуска процесса подписки
+                        sendBillingBroadcast();
                     }
                 }
             }
