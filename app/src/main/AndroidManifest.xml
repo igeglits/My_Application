@@ -17,7 +17,7 @@
         <!-- Ваш блок <receiver> для приемника -->
         <receiver
             android:name=".YourReceiverClass"
-            android:exported="false">
+            android:exported="true">
             <!-- дополнительные настройки, если нужны -->
             <intent-filter>
                 <action android:name="com.your.package.ACTION_RECEIVE_BILLING" />

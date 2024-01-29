@@ -21,6 +21,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private MediaPlayer[] mediaPlayers;
@@ -49,12 +50,15 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayers[i] = MediaPlayer.create(this, audioResourceIds[i]);
             mediaPlayers[i].setOnCompletionListener(mp -> playNextTrack());
         }
-
         playCurrentTrack();
 
         setupBillingClient();
     }
-
+    private void sendBillingBroadcast() {
+        Intent broadcastIntent = new Intent("com.your.package.ACTION_RECEIVE_BILLING");
+        broadcastIntent.setPackage(getPackageName());
+        sendBroadcast(broadcastIntent);
+    }
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
