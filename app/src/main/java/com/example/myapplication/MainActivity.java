@@ -76,8 +76,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void showFreeTrialDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Бесплатные 7 дней");
-        builder.setMessage("Вы можете бесплатно пользоваться приложением первые 7 дней. После этого необходимо оформить подписку.");
+        builder.setTitle("Free 7 days");
+        builder.setMessage("You can use the app for free for the first 7 days. After that, you will need to subscribe.");
         builder.setPositiveButton("OK", (dialog, which) -> {
             preferences.edit().putBoolean(PREF_FIRST_LAUNCH, false).apply();
             checkSubscriptionStatus();
@@ -151,14 +151,14 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Subscribe Now?");
         builder.setMessage("To continue using the application, it is necessary to subscribe.");
-        builder.setPositiveButton("Да", (dialog, which) -> initiateSubscriptionProcess());
-        builder.setNegativeButton("Нет", (dialog, which) -> finish());
+        builder.setPositiveButton("YES", (dialog, which) -> initiateSubscriptionProcess());
+        builder.setNegativeButton("NO", (dialog, which) -> finish());
         builder.setCancelable(false);
         builder.show();
     }
 
     private void initiateSubscriptionProcess() {
-        String skuId = "ваш_идентификатор_подписки"; // замените на ваш SKU
+        String skuId = "my subscription indicator SKU"; // замените на ваш SKU
 
         SkuDetailsParams skuDetailsParams = SkuDetailsParams.newBuilder()
                 .setSkusList(Collections.singletonList(skuId))
@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
         String buttonText = clickedButton.getText().toString();
 
         if (buttonText.equalsIgnoreCase(getString(R.string.info_button))) {
-            openBrowser("https://mathmeditation.wordpress.com/");
+            openBrowser("https://www.google.com/");
         } else {
             int enteredNumber = Integer.parseInt(buttonText);
             checkGuess(enteredNumber);
